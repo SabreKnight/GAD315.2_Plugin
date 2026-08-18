@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+[System.Serializable]
 public class QuestionClass 
 {
     public string Question;
@@ -9,8 +10,12 @@ public class QuestionClass
     public string Category = "Misc";
     public List<string> Answers = new List<string>();
     public List<bool> AnswerKey = new List<bool>();
+    public string Explanation;
 
-    public bool displayFolderBool = true;
+    [HideInInspector] public bool displayFolderBool = false;
+    [HideInInspector] public bool SelectedQuestion = false;
+    [HideInInspector] public int IndexCheck;
+    [HideInInspector] public int QuestionIndex;
 
     public QuestionClass()
     {
@@ -18,10 +23,4 @@ public class QuestionClass
         Category = "Misc";
     }
 
-    public QuestionClass(string Q, int I, string C)
-    {
-        Question = Q;
-        Timer = I;
-        Category = C;
-    }
 }

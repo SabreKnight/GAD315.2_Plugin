@@ -1,7 +1,5 @@
-Question, QuestionTime, Category, Explanation, Answers
+Question, QuestionTime, Category, Answers
 How many sleeves does a shirt have?,30,Common Knowledge,Left and right sleeves,0,1,2,3
 False,False,True,False
 How many sleeves do pants have?,30,Common Knowledge,Pants don't have sleeves,0,1,2,3
 True,False,False,False
-How many toes do people have,30,Misc,look at your toes,4,8,10,13
-False,False,True,False
