@@ -7,6 +7,7 @@ public class QuestionClass
 {
     public string Question;
     public int Timer = 30;
+    public int PointValue = 1;
     public string Category = "Misc";
     public List<string> Answers = new List<string>();
     public List<bool> AnswerKey = new List<bool>();

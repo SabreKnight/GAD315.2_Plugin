@@ -1,7 +1,7 @@
 Question, QuestionTime, Category, Explanation, Answers
-How many sleeves does a shirt have?,30,Common Knowledge,Left and right sleeves,0,1,2,3
-False,False,True,False
-How many sleeves do pants have?,30,Common Knowledge,Pants don't have sleeves,0,1,2,3
+what is an integer,30,Computers,An integer is used for counting whole values,1,A discrete number value,A string of text,A true or false value,a number that allows for decimals
 True,False,False,False
-How many toes do people have,30,Misc,look at your toes,4,8,10,13
+What is a boolean,30,Computers,Booleans allow for binary values,1,A discrete number value,A string of text,A true or false value,a number that allows for decimals
 False,False,True,False
+How many fingers on a human hand,30,Biology,unless you have weird hands just look down at them,1,1,5,7,10
+False,True,False,False

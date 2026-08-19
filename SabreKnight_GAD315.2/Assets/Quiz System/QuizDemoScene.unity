@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -115, y: -95.99999}
-  m_SizeDelta: {x: 200, y: 45}
+  m_AnchoredPosition: {x: -87.1, y: -62.999992}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &60348168
 MonoBehaviour:
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.8
+  m_fontSize: 12.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -562,8 +562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 115, y: -43}
-  m_SizeDelta: {x: 200, y: 45}
+  m_AnchoredPosition: {x: 62.9, y: -13.699993}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299080733
 MonoBehaviour:
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 12.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1053,8 +1053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -115, y: -43}
-  m_SizeDelta: {x: 200, y: 45}
+  m_AnchoredPosition: {x: -87.1, y: -13.7}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &620282732
 MonoBehaviour:
@@ -1182,9 +1182,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1229548939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25, y: -25}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 167, y: -61.100006}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &741025302
@@ -1880,61 +1880,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionList:
-  - Question: How many fingers on a human hand
-    Timer: 30
-    PointValue: 3
-    Category: Biology
-    Answers:
-    - 1
-    - 5
-    - 7
-    - 10
-    AnswerKey: 00010000
-    Explanation: unless you have weird hands just look down at them
-    displayFolderBool: 0
-    SelectedQuestion: 1
-    IndexCheck: 2
-    QuestionIndex: 2
-  - Question: What is a boolean
-    Timer: 30
-    PointValue: 2
-    Category: Computers
-    Answers:
-    - A discrete number value
-    - A string of text
-    - A true or false value
-    - a number that allows for decimals
-    AnswerKey: 00000100
-    Explanation: Booleans allow for binary values
-    displayFolderBool: 0
-    SelectedQuestion: 1
-    IndexCheck: 1
-    QuestionIndex: 1
-  - Question: what is an integer
+  - Question: How many sleeves does a shirt have?
     Timer: 30
     PointValue: 1
-    Category: Computers
+    Category: Common Knowledge
     Answers:
-    - A discrete number value
-    - A string of text
-    - A true or false value
-    - a number that allows for decimals
-    AnswerKey: 01000000
-    Explanation: An integer is used for counting whole values
+    - 0
+    - 1
+    - 2
+    - 3
+    AnswerKey: 00000100
+    Explanation: Left and right sleeves
     displayFolderBool: 0
     SelectedQuestion: 1
     IndexCheck: 0
     QuestionIndex: 0
+  - Question: How many sleeves do pants have?
+    Timer: 30
+    PointValue: 2
+    Category: Common Knowledge
+    Answers:
+    - 0
+    - 1
+    - 2
+    - 3
+    AnswerKey: 01000000
+    Explanation: Pants don't have sleeves
+    displayFolderBool: 0
+    SelectedQuestion: 1
+    IndexCheck: 1
+    QuestionIndex: 1
+  - Question: How many toes do people have
+    Timer: 30
+    PointValue: 3
+    Category: Biology
+    Answers:
+    - 4
+    - 8
+    - 10
+    - 13
+    AnswerKey: 00000100
+    Explanation: look at your toes
+    displayFolderBool: 0
+    SelectedQuestion: 1
+    IndexCheck: 2
+    QuestionIndex: 2
   titleText: {fileID: 2031344187}
   ReviewText: {fileID: 116742741}
   countDownText: {fileID: 741025303}
-  nameInputField: {fileID: 981162657}
   textList:
   - {fileID: 1629292715}
   - {fileID: 1995852522}
   - {fileID: 163524660}
   - {fileID: 380867532}
-  answerArray: 00000000
+  answerArray: 
   ReviewDisableObjectList:
   - {fileID: 620282730}
   - {fileID: 299080731}
@@ -1946,7 +1945,10 @@ MonoBehaviour:
   - {fileID: 1754947126}
   - {fileID: 116742739}
   - {fileID: 981162655}
-  InterissionTimer: 2
+  myInputField: {fileID: 981162657}
+  InterissionTimer: 1
+  quizState: 0
+  QuestionCount: 0
 --- !u!4 &1155553426
 Transform:
   m_ObjectHideFlags: 0
@@ -2001,7 +2003,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -374, y: -166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1620903008
 GameObject:
@@ -2039,8 +2041,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 115, y: -95.99999}
-  m_SizeDelta: {x: 200, y: 45}
+  m_AnchoredPosition: {x: 62.9, y: -62.999992}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620903010
 MonoBehaviour:
@@ -2228,7 +2230,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 12.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2817,7 +2819,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 12.8
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

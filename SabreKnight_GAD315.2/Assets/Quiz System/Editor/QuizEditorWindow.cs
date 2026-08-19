@@ -11,6 +11,9 @@ public class QuizEditorWindow : EditorWindow
     private static QuizManager quizManagerRef;
     private static List<QuestionClass> questionList;
 
+    private static bool TextFolder = false;
+    private static bool AnswerFolder = false;
+
     [MenuItem("Quiz Tools/Quiz Editor")] // location of the editor window
     public static void ShowWindow() // opens editor window
     {
@@ -23,6 +26,10 @@ public class QuizEditorWindow : EditorWindow
         GetManager();
         DisplayQuestions();
         DisplayTMPro();
+        GUILayout.Space(10);
+
+        EditorGUILayout.LabelField("References to Review Disable/enable objects lists", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField("must be done so in the Quiz manager component inspector window", EditorStyles.boldLabel);
         EditorGUILayout.EndScrollView();
 
     }
@@ -75,27 +82,45 @@ public class QuizEditorWindow : EditorWindow
         }
     }
 
+    
+
     private void DisplayTMPro()
     {
-        GUILayout.Space(10);
-        quizManagerRef.titleText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Question UI text: ", quizManagerRef.titleText, typeof(TextMeshProUGUI), true);
-        GUILayout.Space(3);
-        bool TextCheck = false;
-        for(int i = 0; i <= quizManagerRef.QuestionList.Count; i++)
+        //GUILayout.Space(10);
+        EditorGUILayout.IntField("Intermission Time ", quizManagerRef.InterissionTimer);
+
+        TextFolder = EditorGUILayout.BeginFoldoutHeaderGroup(TextFolder, "Unique Text References"); 
+        if(TextFolder)
         {
-            quizManagerRef.textList[i] = (TextMeshProUGUI)EditorGUILayout.ObjectField("Answer/Button " + (i+1) + " UI text: ", quizManagerRef.textList[i], typeof(TextMeshProUGUI), true);
-            if(quizManagerRef.textList[i] == null)
+            GUILayout.Space(10);
+            quizManagerRef.titleText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Question UI Text: ", quizManagerRef.titleText, typeof(TextMeshProUGUI), true);
+            quizManagerRef.countDownText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Countdown UI Text: ", quizManagerRef.countDownText, typeof(TextMeshProUGUI), true);
+            quizManagerRef.ReviewText = (TextMeshProUGUI)EditorGUILayout.ObjectField("Explanation UI Text: ", quizManagerRef.ReviewText, typeof(TextMeshProUGUI), true);
+            quizManagerRef.nameInputField = (TMP_InputField)EditorGUILayout.ObjectField("Name Input Field: ", quizManagerRef.nameInputField, typeof(TMP_InputField), true);
+            GUILayout.Space(3);
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+
+        AnswerFolder = EditorGUILayout.BeginFoldoutHeaderGroup(AnswerFolder, "Answer Text References"); 
+        if(AnswerFolder)
+        {
+            bool TextCheck = false;
+            for(int i = 0; i <= quizManagerRef.QuestionList.Count; i++)
             {
-                TextCheck = true;
+                quizManagerRef.textList[i] = (TextMeshProUGUI)EditorGUILayout.ObjectField("Answer/Button " + (i+1) + " UI text: ", quizManagerRef.textList[i], typeof(TextMeshProUGUI), true);
+                if(quizManagerRef.textList[i] == null)
+                {
+                    TextCheck = true;
+                }
+            }
+
+            if(TextCheck == true)
+            {
+                GUILayout.Space(5);
+                EditorGUILayout.LabelField("Text Mesh Pro GUI fields must have a reference!", EditorStyles.boldLabel);
             }
         }
-
-        if(TextCheck == true)
-        {
-            GUILayout.Space(5);
-            EditorGUILayout.LabelField("Text Mesh Pro GUI fields must have a reference!", EditorStyles.boldLabel);
-        }
-        
+        EditorGUILayout.EndFoldoutHeaderGroup();
     }
 
     private void GetManager()
@@ -114,6 +139,7 @@ public class QuizEditorWindow : EditorWindow
             else if(managerArray.Length > 1)
             {
                 EditorGUILayout.LabelField("Multiple Managers in scene - Quiz Manager must be assigned", EditorStyles.boldLabel);
+                
             }
             else
             {

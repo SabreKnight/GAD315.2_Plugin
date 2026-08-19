@@ -46,7 +46,7 @@ public class QuizLibraryWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Save Quiz to Library File"))   // creates a button for the user
+            if (GUILayout.Button("Save Questions to Library File"))   // creates a button for the user
             {
                 WriteLibraryData();
             }
@@ -62,7 +62,7 @@ public class QuizLibraryWindow : EditorWindow
 
         EditorGUILayout.BeginHorizontal();
 
-            if (GUILayout.Button("Load Quiz Library File"))   // creates a button for the user
+            if (GUILayout.Button("Load Question Library File"))   // creates a button for the user
             {
                 ReadLibraryData();
             }
@@ -126,7 +126,7 @@ public class QuizLibraryWindow : EditorWindow
         }
         if (GUILayout.Button("Clear Questions in manager"))   // creates a button for the user
         {
-            
+            quizManagerRef.ClearManager();
         }
 
     }
@@ -250,6 +250,7 @@ public class QuizLibraryWindow : EditorWindow
                     {
                         EditorGUIUtility.labelWidth = 120f;
                         EditorGUILayout.IntField("Question Timer: ", question.Timer);
+                        EditorGUILayout.IntField("Point Value: ", question.PointValue);
                         EditorGUIUtility.labelWidth = 80f;
 
                         for(int i = 0; i < question.Answers.Count; i++)
@@ -301,6 +302,7 @@ public class QuizLibraryWindow : EditorWindow
         {
             EditorGUIUtility.labelWidth = 120f;
             EditorGUILayout.IntField("Question Timer: ", NewQuestion.Timer);
+            EditorGUILayout.IntField("Point Value: ", NewQuestion.PointValue);
             EditorGUIUtility.labelWidth = 80f;
 
             if (GUILayout.Button("Add Answer"))   // creates a button for the user
@@ -344,6 +346,7 @@ public class QuizLibraryWindow : EditorWindow
                     }
 
                     LibraryDictionary[NewQuestion.Category].Add(NewQuestion);
+                    NewQuestion = null;
                 }
             }
             
@@ -457,6 +460,13 @@ public class QuizLibraryWindow : EditorWindow
                                 Count ++;
                                 break;
                             }
+                            case 5:
+                            {
+                                linetext = linetext + ", Points: " + item;
+                                CurrentQuestion.PointValue = int.Parse(item);
+                                Count ++;
+                                break;
+                            }
                             default:
                             {
                                 linetext = linetext + ", Answer " + (Count - 3) + ": " + item;
@@ -499,11 +509,11 @@ public class QuizLibraryWindow : EditorWindow
                 //CurrentQuestion = null;
             }
             
-            Debug.Log("[CSV Tool] --- Finished CSV Read ---");
+            Debug.Log("[Quiz Tool] --- Finished File Read ---");
         }
         catch (Exception ex)
         {
-            Debug.LogError($"[CSV Tool] Failed to read CSV: {ex.Message}");
+            Debug.LogError($"[Quiz Tool] Failed to read file: {ex.Message}");
         }
         CullQuestions(false);
 
@@ -539,7 +549,7 @@ public class QuizLibraryWindow : EditorWindow
                         Q ++;
                     }
 
-                    string top = question.Question + "," + question.Timer.ToString() + "," + question.Category + "," + question.Explanation;
+                    string top = question.Question + "," + question.Timer.ToString() + "," + question.Category + "," + question.Explanation + "," + question.PointValue;
                     string bottom = null;
                     for(int i = 0; i < question.Answers.Count; i++)
                     {
